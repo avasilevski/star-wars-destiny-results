@@ -52,6 +52,20 @@
           <span>Results</span></a>
       </li>
 
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="/characters">
+          <i class="fas fa-poll-h"></i>
+          <span>Characters</span></a>
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="/battlefields">
+          <i class="fas fa-poll-h"></i>
+          <span>Battlefields</span></a>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -74,6 +88,11 @@
 
         <!-- Placeholder for navigation-->
         <%- include(page); %>
+
+        <!-- Modals -->
+        <%- include('modal/_result_modal'); %>
+        <%- include('modal/_character_modal'); %>
+        <%- include('modal/_battlefield_modal'); %>
 
         </div>
         <!-- /.container-fluid -->

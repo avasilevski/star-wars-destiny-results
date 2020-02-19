@@ -1,0 +1,171 @@
+
+<!-- Modal -->
+<div id="result-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+  <!-- Modal content-->
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Add Result</h4>
+          </div>
+          <form id='add-result' enctype="multipart/form-data" method="post" name="fileinfo">
+              <div class="modal-body">
+                  <div class="form-row">
+                      <div class="form-group col">
+                          <input type="text" name='player_one_name' class="form-control" id="player_one_name" aria-describedby="Player One Name" placeholder="Player One Name">
+                      </div>
+                      <div class="form-group col">
+                          <input type="text" name='player_two_name' class="form-control" id="player_two_name" aria-describedby="Player Two Name" placeholder="Player Two Name">
+                      </div>
+                  </div>
+
+                  <div class="form-row">
+                    <!--P1 First Char-->
+                    <div class="col">
+                      <select class="form-control">
+                        <option>First Character</option>
+                      </select>
+                    </div>
+                    <div class="col-2">
+                      <input type="text" name='player_two_name' class="form-control" id="player_two_name" aria-describedby="Hp" placeholder="Hp">
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    </div>
+
+                    <!--P2 First Char-->
+                    <div class="col">
+                      <select class="form-control">
+                        <option>First Character</option>
+                      </select>
+                    </div>
+                    <div class="col-2">
+                      <input type="text" name='player_two_name' class="form-control" id="player_two_name" aria-describedby="Hp" placeholder="Hp">
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    </div>
+                  </div>
+                  
+                  <div class="form-row">
+                    <!--P1 Second Char-->
+                    <div class="col">
+                      <select class="form-control">
+                        <option>Second Character</option>
+                      </select>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    </div>
+
+                    <!--P2 Second Char-->
+                    <div class="col">
+                      <select class="form-control">
+                        <option>Second Character</option>
+                      </select>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <!--P1 Third Char-->
+                    <div class="col">
+                      <select class="form-control">
+                        <option>Third Character</option>
+                      </select>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    </div>
+
+                    <!--P2 Third Char-->
+                    <div class="col">
+                      <select class="form-control">
+                        <option>Third Character</option>
+                      </select>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col">
+                      <select class="form-control">
+                        <option>Fourth Character</option>
+                      </select>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    </div>
+
+                    <div class="col">
+                      <select class="form-control">
+                        <option>Fourth Character</option>
+                      </select>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col">
+                      <select class="form-control">
+                        <option>Fifth Character</option>
+                      </select>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    </div>
+
+                    <div class="col">
+                      <select class="form-control">
+                        <option>Fifth Character</option>
+                      </select>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col">
+                      <select class="form-control">
+                        <option>Select Battlefield</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col">
+                      <select class="form-control">
+                        <option>Standard 30 - points and cards</option>
+                        <option>Infinity 40 - points and cards</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col">
+                        <input type="text" name='player_one_cards_left' class="form-control" id="player_one_cards_left" aria-describedby="P1 Cards Left" placeholder="P1 Cards Left">
+                    </div>
+                    <div class="form-group col">
+                        <input type="text" name='player_two_cards_left' class="form-control" id="player_two_cards_left" aria-describedby="P2 Cards Left" placeholder="P2 Cards Left">
+                    </div>
+                  </div>
+                  
+
+                  <div class="spinner-border m-auto d-none" role="status">
+                      <span class="sr-only">Loading...</span>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  <input type='submit' class="btn btn-primary" id='add-new-country-js' data-dismiss=""></input>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

@@ -11,4 +11,14 @@ router.get('/results', (req, res, next) => {
   res.render('layout', { title: 'Dashboard | Results', page: 'inc/_results'});
 });
 
+/* GET characters page. */
+router.get('/characters', (req, res, next) => {
+  res.render('layout', { title: 'Dashboard | Characters', page: 'inc/_characters'});
+});
+
+/* GET battlefields page. */
+router.get('/battlefields', (req, res, next) => {
+  res.render('layout', { title: 'Dashboard | Battlefields', page: 'inc/_battlefields'});
+});
+
 module.exports = router;
