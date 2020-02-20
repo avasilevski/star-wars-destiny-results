@@ -6,29 +6,29 @@
           <div class="modal-header">
               <h4 class="modal-title">Add Character</h4>
           </div>
-          <form id='add-result' enctype="multipart/form-data" method="post" name="fileinfo">
+          <form id='add-result' method="post" action="/characters">
               <div class="modal-body">
                   <div class="form-row">
                       <div class="form-group col">
-                          <input type="text" name='character_name' class="form-control" id="character_name" aria-describedby="Character Name" placeholder="Character Name">
+                          <input type="text" name='name' class="form-control" id="character_name" aria-describedby="Name" placeholder="Name">
                       </div>
                       <div class="form-group col-2">
-                          <input type="text" name='character_hp' class="form-control" id="character_hp" aria-describedby="HP" placeholder="HP">
+                          <input type="text" name='hp' class="form-control" id="character_hp" aria-describedby="hp" placeholder="hp">
                       </div>
                   </div>
                   <div class="form-row">
                     <div class="col">
-                      <select class="form-control">
+                      <select name="faction" class="form-control">
                         <option>Hero</option>
-                        <option>Vilian</option>
+                        <option>Villain</option>
                         <option>Neutral</option>
                       </select>
                     </div>
                     <div class="col">
-                        <input type="text" name='character_cost_normal' class="form-control" id="character_cost_name" aria-describedby="Normal Cost" placeholder="Normal Cost">
+                        <input type="text" name='costNormal' class="form-control" id="character_cost_name" aria-describedby="Normal Cost" placeholder="Normal Cost">
                     </div>
                     <div class="col">
-                        <input type="text" name='character_cost_elite' class="form-control" id="character_cost_elite" aria-describedby="Elite Cost" placeholder="Elite Cost">
+                        <input type="text" name='costElite' class="form-control" id="character_cost_elite" aria-describedby="Elite Cost" placeholder="Elite Cost">
                     </div>
                   </div>
                   

@@ -4,7 +4,7 @@ var path = require('path');
 var sequelize = require('./config/sequelize');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var bodyParser = require('body-parser')
 var indexRouter = require('./routes/pages/index');
 var charactersRouter = require('./routes/api/characters');
 
@@ -24,9 +24,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
 
 app.use('/', indexRouter);
-app.use('/', charactersRouter)
+app.use('/characters', charactersRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
