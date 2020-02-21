@@ -8,6 +8,10 @@ Character.init({
     type: Sequelize.STRING,
     allowNull: false
   },
+  color: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   hp: {
     type: Sequelize.INTEGER,
     allowNull: false

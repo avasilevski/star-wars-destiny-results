@@ -1,19 +1,16 @@
 <!-- Modal -->
-<div id="result-modal" class="modal fade" role="dialog">
+<div id="battlefield-modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
   <!-- Modal content-->
       <div class="modal-content">
           <div class="modal-header">
-              <h4 class="modal-title">Add Result</h4>
+              <h4 class="modal-title">Add Battlefield</h4>
           </div>
-          <form id='add-result' enctype="multipart/form-data" method="post" name="fileinfo">
+          <form id='add-result' method="post" action="/battlefields">
               <div class="modal-body">
                   <div class="form-row">
                       <div class="form-group col">
-                          <input type="text" name='player_one_name' class="form-control" id="player_one_name" aria-describedby="Player One Name" placeholder="Player One Name">
-                      </div>
-                      <div class="form-group col">
-                          <input type="text" name='player_two_name' class="form-control" id="player_two_name" aria-describedby="Player Two Name" placeholder="Player Two Name">
+                          <input type="text" name='name' class="form-control" id="battlefield_name" aria-describedby="Battlefield Name" placeholder="Battlefield Name">
                       </div>
                   </div>
                   
@@ -24,7 +21,7 @@
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                  <input type='submit' class="btn btn-primary" id='add-new-country-js' data-dismiss=""></input>
+                  <input type='submit' class="btn btn-primary" data-dismiss=""></input>
               </div>
           </form>
       </div>

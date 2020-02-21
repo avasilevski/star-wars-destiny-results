@@ -7,6 +7,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser')
 var indexRouter = require('./routes/pages/index');
 var charactersRouter = require('./routes/api/characters');
+var battlefieldsRouter = require('./routes/api/battlefields');
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use(bodyParser.json());
 
 app.use('/', indexRouter);
 app.use('/characters', charactersRouter)
+app.use('/battlefields', battlefieldsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

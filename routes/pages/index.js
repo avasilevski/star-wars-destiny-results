@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+const Battlefield = require('../../models/Battlefield');
+const Character = require('../../models/Character');
 
 /* GET index page. */
 router.get('/', (req, res, next) => {
@@ -13,12 +15,16 @@ router.get('/results', (req, res, next) => {
 
 /* GET characters page. */
 router.get('/characters', (req, res, next) => {
-  res.render('layout', { title: 'Dashboard | Characters', page: 'inc/_characters'});
+  Character.findAll().then(characters => {
+    res.render('layout', { title: 'Dashboard | Characters', page: 'inc/_characters', characters: characters});
+  })
 });
 
 /* GET battlefields page. */
 router.get('/battlefields', (req, res, next) => {
-  res.render('layout', { title: 'Dashboard | Battlefields', page: 'inc/_battlefields'});
+  Battlefield.findAll().then(battlefields => {
+    res.render('layout', { title: 'Dashboard | Battlefields', page: 'inc/_battlefields', battlefields: battlefields});
+  })
 });
 
 module.exports = router;

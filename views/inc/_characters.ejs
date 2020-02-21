@@ -20,6 +20,21 @@
             <th scope="col">/</th>
           </tr>
         </thead>
+        <% if (characters) { %>
+          <% characters.forEach(function(character){ %>
+            <tr>
+              <th scope="row"><%= character.id %></th>
+              <td><%= character.name %></td>
+              <td><%= character.faction %></td>
+              <td><%= character.color %></td>
+              <td><%= character.costNormal %></td>
+              <td><%= character.costElite %></td>
+              <td><%= character.hp %></td>
+              <!-- <td><button type="button" class="btn btn-warning btn-modal" data-id="{{ $category->id }}" data-toggle="modal" data-target="#categoryEditModal{{ $category->id }}">Edit</button></td>
+              <td><button type="button" class="btn btn-danger" data-id="{{ $category->id }}" data-toggle="modal" data-target="#categoryDeleteModal{{ $category->id }}">Delete</button></td> -->
+            </tr>
+          <% }); %>
+        <% } %>
         <!-- <tbody>
           @if(count($categories) > 0)
             @foreach ($categories as $category)
