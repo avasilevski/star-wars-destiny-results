@@ -1,19 +1,24 @@
 <!-- Modal -->
-<div id="battlefield-modal" class="modal fade" role="dialog">
+<div id="format-modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
   <!-- Modal content-->
       <div class="modal-content">
           <div class="modal-header">
-              <h4 class="modal-title">Add Battlefield</h4>
+              <h4 class="modal-title">Add Format</h4>
           </div>
-          <form id='add-battlefield' method="post" action="/battlefields">
+          <form id='add-format' method="post" action="/formats">
               <div class="modal-body">
                   <div class="form-row">
                       <div class="form-group col">
-                          <input type="text" name='name' class="form-control" id="battlefield_name" aria-describedby="Battlefield Name" placeholder="Battlefield Name">
+                          <input type="text" name='name' class="form-control" aria-describedby="Format Name" placeholder="Format Name">
                       </div>
                   </div>
                   
+                  <div class="form-row">
+                    <div class="form-group col">
+                        <input type="text" name='description' class="form-control" aria-describedby="Format Description" placeholder="Format Description">
+                    </div>
+                </div>
 
                   <div class="spinner-border m-auto d-none" role="status">
                       <span class="sr-only">Loading...</span>

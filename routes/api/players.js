@@ -1,18 +1,18 @@
 var express = require('express');
 var router = express.Router();
-const Battlefield = require('../../models/Battlefield');
+const Player = require('../../models/Player');
 
 /* POST battlefield */
 router.post('/', (req, res, next) => {
-  Battlefield.create({ name: req.body.name}).then(battlefield => {
-    res.redirect('/battlefields');
+  Player.create({ name: req.body.name}).then(player => {
+    res.redirect('/players');
   }).catch(err => console.log(err));
 });
 
 /* DELETE battlefield */
 router.delete('/', (req, res, next) => {
-  Battlefield.destroy({ where: {id: req.body.id}}).then(battlefield => {
-    res.redirect('/battlefields');
+  Player.destroy({ where: {id: req.body.id}}).then(player => {
+    res.redirect('/players');
   }).catch(err => console.log(err));
 });
 

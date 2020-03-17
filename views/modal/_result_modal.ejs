@@ -7,143 +7,241 @@
           <div class="modal-header">
               <h4 class="modal-title">Add Result</h4>
           </div>
-          <form id='add-result' enctype="multipart/form-data" method="post" name="fileinfo">
+          <form id='add-result' method="post" action="/results">
               <div class="modal-body">
+
+                <!-- Players Name Input-->
                   <div class="form-row">
                       <div class="form-group col">
-                          <input type="text" name='player_one_name' class="form-control" id="player_one_name" aria-describedby="Player One Name" placeholder="Player One Name">
+                        <select class="form-control" name='player_one_id' placeholder="Player One Name">
+                          <% if (players) { %>
+                            <% players.forEach(function(player){ %>
+                              <option value="<%= player.id %>"><%= player.name %></option>
+                            <% }); %>
+                          <% } %>
+                        </select>
                       </div>
                       <div class="form-group col">
-                          <input type="text" name='player_two_name' class="form-control" id="player_two_name" aria-describedby="Player Two Name" placeholder="Player Two Name">
+                        <select class="form-control" name='player_two_id' placeholder="Player Two Name">
+                          <% if (players) { %>
+                            <% players.forEach(function(player){ %>
+                              <option value="<%= player.id %>"><%= player.name %></option>
+                            <% }); %>
+                          <% } %>
+                        </select>
                       </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col">
+                      <select name="player_one_faction" class="form-control">
+                        <option>Hero</option>
+                        <option>Villain</option>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <select name="player_two_faction" class="form-control">
+                        <option>Hero</option>
+                        <option>Villain</option>
+                      </select>
+                    </div>
                   </div>
 
                   <div class="form-row">
                     <!--P1 First Char-->
                     <div class="col">
-                      <select class="form-control">
-                        <option>First Character</option>
+                      <select name="player_one_character_one" class="form-control">
+                        <% if (characters) { %>
+                          <% characters.forEach(function(character){ %>
+                            <option value="<%= character.id %>"><%= character.name %></option>
+                          <% }); %>
+                        <% } %>
                       </select>
                     </div>
                     <div class="col-2">
-                      <input type="text" name='player_two_name' class="form-control" id="player_two_name" aria-describedby="Hp" placeholder="Hp">
+                      <input type="text" name='player_one_character_one_hp_left' class="form-control" aria-describedby="Hp" placeholder="Hp">
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <input class="form-check-input" type="radio" name="player_one_character_one_type" value="normal" checked="checked">
+                      <input class="form-check-input" type="radio" name="player_one_character_one_type" value="elite">
                     </div>
 
                     <!--P2 First Char-->
                     <div class="col">
-                      <select class="form-control">
-                        <option>First Character</option>
+                      <select name="player_two_character_one" class="form-control">
+                        <% if (characters) { %>
+                          <% characters.forEach(function(character){ %>
+                            <option value="<%= character.id %>"><%= character.name %></option>
+                          <% }); %>
+                        <% } %>
                       </select>
                     </div>
                     <div class="col-2">
-                      <input type="text" name='player_two_name' class="form-control" id="player_two_name" aria-describedby="Hp" placeholder="Hp">
+                      <input type="text" name='player_two_character_one_hp_left' class="form-control" aria-describedby="Hp" placeholder="Hp">
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <input class="form-check-input" type="radio" name="player_two_character_one_type" value="normal" checked="checked">
+                      <input class="form-check-input" type="radio" name="player_two_character_one_type" value="elite">
                     </div>
                   </div>
                   
                   <div class="form-row">
                     <!--P1 Second Char-->
                     <div class="col">
-                      <select class="form-control">
-                        <option>Second Character</option>
+                      <select name="player_one_character_two" class="form-control">
+                        <option hidden >Empty</option>
+                        <% if (characters) { %>
+                          <% characters.forEach(function(character){ %>
+                            <option value="<%= character.id %>"><%= character.name %></option>
+                          <% }); %>
+                        <% } %>
                       </select>
                     </div>
+                    <div class="col-2">
+                      <input type="text" name='player_one_character_two_hp_left' class="form-control" aria-describedby="Hp" placeholder="Hp">
+                    </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <input class="form-check-input" type="radio" name="player_one_character_two_type" value="normal">
+                      <input class="form-check-input" type="radio" name="player_one_character_two_type" value="elite">
                     </div>
 
                     <!--P2 Second Char-->
                     <div class="col">
-                      <select class="form-control">
-                        <option>Second Character</option>
+                      <select name="player_two_character_two" class="form-control">
+                        <option hidden >Empty</option>
+                        <% if (characters) { %>
+                          <% characters.forEach(function(character){ %>
+                            <option value="<%= character.id %>"><%= character.name %></option>
+                          <% }); %>
+                        <% } %>
                       </select>
                     </div>
+                    <div class="col-2">
+                      <input type="text" name='player_two_character_two_hp_left' class="form-control" aria-describedby="Hp" placeholder="Hp">
+                    </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <input class="form-check-input" type="radio" name="player_two_character_two_type" value="normal">
+                      <input class="form-check-input" type="radio" name="player_two_character_two_type" value="elite">
                     </div>
                   </div>
 
                   <div class="form-row">
                     <!--P1 Third Char-->
                     <div class="col">
-                      <select class="form-control">
-                        <option>Third Character</option>
+                      <select name="player_one_character_three" class="form-control">
+                        <option hidden >Empty</option>
+                        <% if (characters) { %>
+                          <% characters.forEach(function(character){ %>
+                            <option value="<%= character.id %>"><%= character.name %></option>
+                          <% }); %>
+                        <% } %>
                       </select>
                     </div>
+                    <div class="col-2">
+                      <input type="text" name='player_one_character_three_hp_left' class="form-control" aria-describedby="Hp" placeholder="Hp">
+                    </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <input class="form-check-input" type="radio" name="player_one_character_three_type" value="normal">
+                      <input class="form-check-input" type="radio" name="player_one_character_three_type" value="elite">
                     </div>
 
                     <!--P2 Third Char-->
                     <div class="col">
-                      <select class="form-control">
-                        <option>Third Character</option>
+                      <select name="player_two_character_three" class="form-control">
+                        <option hidden >Empty</option>
+                        <% if (characters) { %>
+                          <% characters.forEach(function(character){ %>
+                            <option value="<%= character.id %>"><%= character.name %></option>
+                          <% }); %>
+                        <% } %>
                       </select>
                     </div>
+                    <div class="col-2">
+                      <input type="text" name='player_two_character_three_hp_left' class="form-control" aria-describedby="Hp" placeholder="Hp">
+                    </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <input class="form-check-input" type="radio" name="player_two_character_three_type" value="normal">
+                      <input class="form-check-input" type="radio" name="player_two_character_three_type" value="elite">
                     </div>
                   </div>
 
+                  <!--P1 Fourth Char-->
                   <div class="form-row">
                     <div class="col">
-                      <select class="form-control">
-                        <option>Fourth Character</option>
+                      <select name="player_one_character_four" class="form-control">
+                        <option hidden >Empty</option>
+                        <% if (characters) { %>
+                          <% characters.forEach(function(character){ %>
+                            <option value="<%= character.id %>"><%= character.name %></option>
+                          <% }); %>
+                        <% } %>
                       </select>
                     </div>
+                    <div class="col-2">
+                      <input type="text" name='player_one_character_four_hp_left' class="form-control" aria-describedby="Hp" placeholder="Hp">
+                    </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <input class="form-check-input" type="radio" name="player_one_character_four_type" value="normal">
+                      <input class="form-check-input" type="radio" name="player_one_character_four_type" value="elite">
                     </div>
 
+                    <!--P2 Fourth Char-->
                     <div class="col">
-                      <select class="form-control">
-                        <option>Fourth Character</option>
+                      <select name="player_two_character_four" class="form-control">
+                        <option hidden >Empty</option>
+                        <% if (characters) { %>
+                          <% characters.forEach(function(character){ %>
+                            <option value="<%= character.id %>"><%= character.name %></option>
+                          <% }); %>
+                        <% } %>
                       </select>
                     </div>
+                    <div class="col-2">
+                      <input type="text" name='player_two_character_four_hp_left' class="form-control" aria-describedby="Hp" placeholder="Hp">
+                    </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <input class="form-check-input" type="radio" name="player_two_character_four_type" value="normal">
+                      <input class="form-check-input" type="radio" name="player_two_character_four_type" value="elite">
                     </div>
                   </div>
 
+                  <!--P1 Fifth Char-->
                   <div class="form-row">
                     <div class="col">
-                      <select class="form-control">
-                        <option>Fifth Character</option>
+                      <select name="player_one_character_five" class="form-control">
+                        <option hidden >Empty</option>
+                        <% if (characters) { %>
+                          <% characters.forEach(function(character){ %>
+                            <option value="<%= character.id %>"><%= character.name %></option>
+                          <% }); %>
+                        <% } %>
                       </select>
+                    </div>
+                    <div class="col-2">
+                      <input type="text" name='player_one_character_five_hp_left' class="form-control" aria-describedby="Hp" placeholder="Hp">
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <input class="form-check-input" type="radio" name="player_one_character_five_type" value="normal">
+                      <input class="form-check-input" type="radio" name="player_one_character_five_type" value="elite">
                     </div>
 
+                    <!--P2 Fifth Char-->
                     <div class="col">
-                      <select class="form-control">
-                        <option>Fifth Character</option>
+                      <select name="player_two_character_five" class="form-control">
+                        <option hidden >Empty</option>
+                        <% if (characters) { %>
+                          <% characters.forEach(function(character){ %>
+                            <option value="<%= character.id %>"><%= character.name %></option>
+                          <% }); %>
+                        <% } %>
                       </select>
+                    </div>
+                    <div class="col-2">
+                      <input type="text" name='player_two_character_five_hp_left' class="form-control" aria-describedby="Hp" placeholder="Hp">
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    </div>
-                  </div>
-
-                  <div class="form-row">
-                    <div class="col">
-                      <select class="form-control">
-                        <option>Select Battlefield</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="form-row">
-                    <div class="col">
-                      <select class="form-control">
-                        <option>Standard 30 - points and cards</option>
-                        <option>Infinity 40 - points and cards</option>
-                      </select>
+                      <input class="form-check-input" type="radio" name="player_two_character_five_type" value="normal">
+                      <input class="form-check-input" type="radio" name="player_two_character_five_type" value="elite">
                     </div>
                   </div>
 
@@ -155,7 +253,45 @@
                         <input type="text" name='player_two_cards_left' class="form-control" id="player_two_cards_left" aria-describedby="P2 Cards Left" placeholder="P2 Cards Left">
                     </div>
                   </div>
+
+                  <hr>
+
+                  <div class="form-row">
+                    <div class="form-group col">
+                      <label>Winner:</label>
+                      <select class="form-control" name='winner_id' placeholder="Winner">
+                        <% if (players) { %>
+                          <% players.forEach(function(player){ %>
+                            <option value="<%= player.id %>"><%= player.name %></option>
+                          <% }); %>
+                        <% } %>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col">
+                      <select name="battlefield_id" class="form-control">
+                        <% if (battlefields) { %>
+                          <% battlefields.forEach(function(battlefield){ %>
+                            <option value="<%= battlefield.id %>"><%= battlefield.name %></option>
+                          <% }); %>
+                        <% } %>
+                      </select>
+                    </div>
+                  </div>
                   
+                  <div class="form-row">
+                    <div class="col">
+                      <select name="format_id" class="form-control">
+                        <% if (formats) { %>
+                          <% formats.forEach(function(format){ %>
+                            <option value="<%= format.id %>"><%= format.name %></option>
+                          <% }); %>
+                        <% } %>
+                      </select>
+                    </div>
+                  </div>
 
                   <div class="spinner-border m-auto d-none" role="status">
                       <span class="sr-only">Loading...</span>
@@ -163,7 +299,7 @@
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                  <input type='submit' class="btn btn-primary" id='add-new-country-js' data-dismiss=""></input>
+                  <input type='submit' class="btn btn-primary" data-dismiss=""></input>
               </div>
           </form>
       </div>

@@ -1,0 +1,44 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Formats</h1>
+</div>
+
+<!-- Content Row -->
+<div class="row">
+  <div class="col-lg">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">/</th>
+            <th scope="col">/</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (formats) { %>
+            <% formats.forEach(function(format){ %>
+              <tr>
+                <th scope="row"><%= format.id %></th>
+                <td><%= format.name %></td>
+                <td><%= format.description %></td>
+                <!-- <td><button type="button" class="btn btn-warning btn-modal" data-id="{{ $category->id }}" data-toggle="modal" data-target="#categoryEditModal{{ $category->id }}">Edit</button></td>
+                <td><button type="button" class="btn btn-danger" data-id="{{ $category->id }}" data-toggle="modal" data-target="#delete-modal{{ $category->id }}">Delete</button></td> -->
+              </tr>
+            <% }); %>
+          <% } %>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+<!-- Content Row -->
+
+<div class="row">
+  <div class="col-lg">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#format-modal">Add Format</button>
+  </div>
+</div>
+
+<%- include('../modal/_format_modal'); %>
